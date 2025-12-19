@@ -119,12 +119,18 @@ body {
   border: 1px solid rgba(27, 26, 23, 0.12);
   box-shadow: 0 22px 50px rgba(31, 44, 52, 0.12);
   background: rgba(255, 255, 255, 0.9);
+  margin-bottom: 24px;
 }
 
 .top-art img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.top-art--mini {
+  width: min(12vw, 220px);
+  min-width: 140px;
 }
 
 .hero {
@@ -320,7 +326,7 @@ main {
 
 .poster-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 24px;
 }
 
@@ -330,6 +336,8 @@ main {
   overflow: hidden;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  max-width: 260px;
+  justify-self: center;
 }
 
 .poster-card img {
