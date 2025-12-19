@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Katsumata Sota | Animation</title>
+  <title>Katsumata Sota | -CORE-</title>
   <meta name="description" content="自主アニメーション制作の紹介ページ。" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -24,8 +24,8 @@
   <section class="page-hero">
     <div class="page-hero__inner">
       <p class="page-hero__label">Animation</p>
-      <h1>自主アニメーション制作</h1>
-      <p>作品「-Core-」を中心に、映像と物語が共鳴する体験づくりを探求しています。</p>
+      <h1>-CORE-</h1>
+      <p>作品「-CORE-」を中心に、映像と物語が共鳴する体験づくりを探求しています。</p>
     </div>
   </section>
 
@@ -49,15 +49,61 @@
               </div>
               <div>
                 <dt>タイトル</dt>
-                <dd>-Core-</dd>
-              </div>
-              <div>
-                <dt>展示</dt>
-                <dd>デジタルハリウッド大学 卒業制作展 E10 &amp; E11</dd>
+                <dd>-CORE-</dd>
               </div>
             </dl>
             <a class="cta-link" href="https://sites.google.com/dhw.ac.jp/2024hishida/%E3%83%9B%E3%83%BC%E3%83%A0/core?authuser=0" target="_blank" rel="noreferrer">参照ページを開く</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel--light">
+      <div class="panel__inner">
+        <h2>16:9 ビジュアル</h2>
+        <div class="gallery-slider" data-gallery>
+          <div class="gallery-track">
+            <figure class="gallery-slide">
+              <img src="images/SOTUSEIanime/-Core-_V%E3%82%B3%E3%83%B3%E3%83%86_LO_ver6_11_19.00_03_06_20.%E9%9D%99%E6%AD%A2%E7%94%BB007.png" alt="-CORE- コンテ 1" loading="lazy" />
+            </figure>
+            <figure class="gallery-slide">
+              <img src="images/SOTUSEIanime/3AA91EAA-A347-46DF-9C72-3AA70B7E9330.png" alt="-CORE- カット 2" loading="lazy" />
+            </figure>
+            <figure class="gallery-slide">
+              <img src="images/SOTUSEIanime/AA_065_t1%20%2800079%29.png" alt="-CORE- カット 3" loading="lazy" />
+            </figure>
+            <figure class="gallery-slide">
+              <img src="images/SOTUSEIanime/CORE%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB.png" alt="-CORE- タイトル" loading="lazy" />
+            </figure>
+            <figure class="gallery-slide">
+              <img src="images/SOTUSEIanime/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-01-15%2015.41.59.png" alt="-CORE- スクリーンショット" loading="lazy" />
+            </figure>
+            <figure class="gallery-slide">
+              <img src="images/SOTUSEIanime/%E3%83%9D%E3%82%B9%E3%82%BF%E3%83%BC%E7%94%A8%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0.png" alt="-CORE- フレーム" loading="lazy" />
+            </figure>
+            <figure class="gallery-slide">
+              <img src="images/SOTUSEIanime/%E7%94%BB%E5%83%8F.png" alt="-CORE- ビジュアル" loading="lazy" />
+            </figure>
+          </div>
+          <div class="gallery-controls">
+            <button class="gallery-button" type="button" data-prev>Prev</button>
+            <div class="gallery-dots" data-dots></div>
+            <button class="gallery-button" type="button" data-next>Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel--deep">
+      <div class="panel__inner">
+        <h2>ポスター・冊子</h2>
+        <div class="poster-grid">
+          <figure class="poster-card">
+            <img src="images/SOTUSEIanime/CORE%E5%8D%92%E5%88%B6%E3%83%9D%E3%82%B9%E3%82%BF%E3%83%BC.png" alt="-CORE- 卒制ポスター" loading="lazy" />
+          </figure>
+          <figure class="poster-card">
+            <img src="images/SOTUSEIanime/CORE%E5%86%8A%E5%AD%90.png" alt="-CORE- 冊子" loading="lazy" />
+          </figure>
         </div>
       </div>
     </section>
@@ -90,7 +136,7 @@
         <div class="video-embed">
           <iframe
             src="https://www.youtube.com/embed/Go7ThQ1DOP4"
-            title="作品 -Core-"
+            title="作品 -CORE-"
             frameborder="0"
             allow="encrypted-media; picture-in-picture"
             allowfullscreen
@@ -103,5 +149,39 @@
   <footer class="footer">
     <p>© 2024 Katsumata Sota</p>
   </footer>
+  <script>
+    const gallery = document.querySelector("[data-gallery]");
+    if (gallery) {
+      const track = gallery.querySelector(".gallery-track");
+      const slides = Array.from(gallery.querySelectorAll(".gallery-slide"));
+      const dotsWrap = gallery.querySelector("[data-dots]");
+      const prev = gallery.querySelector("[data-prev]");
+      const next = gallery.querySelector("[data-next]");
+      let index = 0;
+
+      const dots = slides.map((_, i) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "gallery-dot";
+        button.setAttribute("aria-label", `スライド ${i + 1}`);
+        button.addEventListener("click", () => update(i));
+        dotsWrap.appendChild(button);
+        return button;
+      });
+
+      const update = (nextIndex) => {
+        index = (nextIndex + slides.length) % slides.length;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("is-active", i === index);
+          dot.setAttribute("aria-current", i === index ? "true" : "false");
+        });
+      };
+
+      prev.addEventListener("click", () => update(index - 1));
+      next.addEventListener("click", () => update(index + 1));
+      update(0);
+    }
+  </script>
 </body>
 </html>
