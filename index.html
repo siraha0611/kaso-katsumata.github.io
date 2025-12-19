@@ -3,12 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Katsumata Sota | Portfolio</title>
+  <title>Katsumata Sota | About</title>
   <meta name="description" content="勝俣颯太（かつまた そうた）のポートフォリオ。物語・イラスト・TRPGを中心に、夢・魂・現実と虚構の境界をテーマに創作しています。" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__brand" href="index.html">Katsumata Sota</a>
+      <nav class="site-nav" aria-label="主要">
+        <a href="index.html" aria-current="page">About</a>
+        <a href="trpg.html">TRPG</a>
+        <a href="illustration.html">Illustration</a>
+        <a href="animation.html">Animation</a>
+      </nav>
+    </div>
+  </header>
+
   <header class="hero">
     <div class="hero__frame">
       <div class="hero__layout">
@@ -117,7 +129,7 @@
       </div>
     </section>
 
-    <section class="panel panel--deep" id="contact">
+    <section class="panel panel--light" id="contact">
       <div class="panel__inner">
         <h2>連絡先</h2>
         <p>
@@ -126,71 +138,10 @@
         </p>
       </div>
     </section>
-
-    <section class="panel panel--light" id="gallery">
-      <div class="panel__inner">
-        <h2>ギャラリー</h2>
-        <div class="gallery-slider" data-gallery>
-          <div class="gallery-track">
-            <figure class="gallery-slide">
-              <img src="images/gallery-1.png" alt="立ち絵イラスト 1" loading="lazy" />
-            </figure>
-            <figure class="gallery-slide">
-              <img src="images/gallery-2.png" alt="立ち絵イラスト 2" loading="lazy" />
-            </figure>
-            <figure class="gallery-slide">
-              <img src="images/gallery-3.png" alt="立ち絵イラスト 3" loading="lazy" />
-            </figure>
-            <figure class="gallery-slide">
-              <img src="images/gallery-4.png" alt="立ち絵イラスト 4" loading="lazy" />
-            </figure>
-          </div>
-          <div class="gallery-controls">
-            <button class="gallery-button" type="button" data-prev>Prev</button>
-            <div class="gallery-dots" data-dots></div>
-            <button class="gallery-button" type="button" data-next>Next</button>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
     <p>© 2024 Katsumata Sota</p>
   </footer>
-  <script>
-    const gallery = document.querySelector("[data-gallery]");
-    if (gallery) {
-      const track = gallery.querySelector(".gallery-track");
-      const slides = Array.from(gallery.querySelectorAll(".gallery-slide"));
-      const dotsWrap = gallery.querySelector("[data-dots]");
-      const prev = gallery.querySelector("[data-prev]");
-      const next = gallery.querySelector("[data-next]");
-      let index = 0;
-
-      const dots = slides.map((_, i) => {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "gallery-dot";
-        button.setAttribute("aria-label", `スライド ${i + 1}`);
-        button.addEventListener("click", () => update(i));
-        dotsWrap.appendChild(button);
-        return button;
-      });
-
-      const update = (nextIndex) => {
-        index = (nextIndex + slides.length) % slides.length;
-        track.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach((dot, i) => {
-          dot.classList.toggle("is-active", i === index);
-          dot.setAttribute("aria-current", i === index ? "true" : "false");
-        });
-      };
-
-      prev.addEventListener("click", () => update(index - 1));
-      next.addEventListener("click", () => update(index + 1));
-      update(0);
-    }
-  </script>
 </body>
 </html>
