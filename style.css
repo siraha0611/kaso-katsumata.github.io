@@ -549,6 +549,26 @@ main {
   color: rgba(27, 26, 23, 0.6);
 }
 
+.footer-highlight-link {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  color: var(--accent-dark);
+  display: inline-block;
+  margin-top: 6px;
+  padding: 16px 36px;
+  border: 2px solid rgba(27, 26, 23, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.footer-highlight-link:hover {
+  color: var(--accent);
+  border-color: rgba(177, 131, 78, 0.6);
+  background: rgba(255, 248, 235, 0.9);
+}
+
 @keyframes rise {
   from {
     opacity: 0;
