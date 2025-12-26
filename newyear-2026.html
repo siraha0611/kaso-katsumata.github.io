@@ -20,25 +20,15 @@
     </div>
   </header>
 
-  <section class="page-hero">
-    <div class="page-hero__inner">
-      <p class="page-hero__label">2026</p>
-      <h1 class="newyear-title">謹賀新年</h1>
-      <p class="newyear-lead">新年あけましておめでとうございます。</p>
-    </div>
-  </section>
-
   <main>
     <section class="panel panel--light">
       <div class="panel__inner">
-        <div class="newyear-card">
-          <div class="newyear-card__content">
-            <h2 class="newyear-card__title">謹賀新年</h2>
-            <p class="newyear-card__vertical">
-              あけましておめでとうございます<br />本年もよろしくお願い申し上げます
-            </p>
-            <button id="runButton" class="newyear-card__button" type="button">馬を走らせる！</button>
-          </div>
+        <div class="newyear-message">
+          <h2 class="newyear-message__title">謹賀新年</h2>
+          <p class="newyear-message__text">
+            あけましておめでとう<br />本年もよろしくお願いお願い申し上げます
+          </p>
+          <button id="runButton" class="newyear-message__button" type="button">馬を走らせる！</button>
           <div id="stage" aria-hidden="true"></div>
         </div>
       </div>
@@ -62,7 +52,7 @@
         const distance = stage.offsetWidth + 120;
 
         requestAnimationFrame(() => {
-          horse.style.transform = `translateX(${distance}px)`;
+          horse.style.transform = `translateX(-${distance}px)`;
         });
 
         horse.addEventListener(
