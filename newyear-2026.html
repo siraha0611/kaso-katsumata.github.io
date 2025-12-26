@@ -31,8 +31,16 @@
   <main>
     <section class="panel panel--light">
       <div class="panel__inner">
-        <h2>ご挨拶</h2>
-        <p>あけましておめでとうございます。</p>
+        <div class="newyear-card">
+          <div class="newyear-card__content">
+            <h2 class="newyear-card__title">謹賀新年</h2>
+            <p class="newyear-card__vertical">
+              あけましておめでとうございます<br />本年もよろしくお願い申し上げます
+            </p>
+            <button id="runButton" class="newyear-card__button" type="button">馬を走らせる！</button>
+          </div>
+          <div id="stage" aria-hidden="true"></div>
+        </div>
       </div>
     </section>
   </main>
@@ -40,5 +48,32 @@
   <footer class="footer">
     <p>© 2024 Katsumata Sota</p>
   </footer>
+
+  <script>
+    const runButton = document.getElementById("runButton");
+    const stage = document.getElementById("stage");
+
+    if (runButton && stage) {
+      runButton.addEventListener("click", () => {
+        const horse = document.createElement("span");
+        horse.className = "horse";
+        horse.textContent = "🐎";
+        stage.appendChild(horse);
+        const distance = stage.offsetWidth + 120;
+
+        requestAnimationFrame(() => {
+          horse.style.transform = `translateX(${distance}px)`;
+        });
+
+        horse.addEventListener(
+          "transitionend",
+          () => {
+            horse.remove();
+          },
+          { once: true }
+        );
+      });
+    }
+  </script>
 </body>
 </html>
