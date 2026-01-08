@@ -6,8 +6,156 @@
   <title>Katsumata Sota | 2026 New Year</title>
   <meta name="description" content="2026年 謹賀新年の挨拶ページ。" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body.newyear-2026 {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 214, 165, 0.7), transparent 42%),
+        radial-gradient(circle at 85% 20%, rgba(160, 205, 255, 0.6), transparent 40%),
+        radial-gradient(circle at 70% 85%, rgba(255, 170, 210, 0.5), transparent 45%),
+        linear-gradient(135deg, #0b162a 0%, #2d2459 45%, #511b3d 100%);
+      color: #f7f3e9;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif;
+    }
+
+    .newyear-2026 .grain {
+      opacity: 0.2;
+      mix-blend-mode: soft-light;
+    }
+
+    .newyear-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 96px;
+    }
+
+    .newyear-panel {
+      max-width: 720px;
+      width: min(92vw, 720px);
+      background: rgba(8, 12, 24, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 40px 120px rgba(6, 8, 18, 0.45);
+      border-radius: 24px;
+      padding: 56px 48px 64px;
+      backdrop-filter: blur(18px);
+    }
+
+    .newyear-label {
+      font-family: "Avenir Next", "Hiragino Sans", "Yu Gothic", sans-serif;
+      letter-spacing: 0.4em;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0 0 28px;
+    }
+
+    .newyear-message {
+      display: grid;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .newyear-message__title {
+      font-size: clamp(3.4rem, 7vw, 5rem);
+      margin: 0;
+      letter-spacing: 0.12em;
+    }
+
+    .type-line {
+      position: relative;
+      margin: 0;
+      font-size: clamp(1.4rem, 3.4vw, 1.9rem);
+      letter-spacing: 0.08em;
+      min-height: 1.8em;
+    }
+
+    .type-line.is-typing::after {
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 1.1em;
+      margin-left: 6px;
+      background: rgba(255, 255, 255, 0.8);
+      animation: blink 0.9s step-start infinite;
+      vertical-align: -2px;
+    }
+
+    .newyear-message__button {
+      justify-self: center;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .newyear-message__button:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .omikuji {
+      min-height: 2.4em;
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .omikuji.is-reveal {
+      animation: fadeUp 0.6s ease;
+    }
+
+    #stage {
+      position: relative;
+      height: 96px;
+      overflow: hidden;
+    }
+
+    .horse {
+      position: absolute;
+      right: -40px;
+      top: 4px;
+      width: 72px;
+      height: auto;
+      transition: transform 3s ease-in;
+    }
+
+    @keyframes blink {
+      0%,
+      50% {
+        opacity: 1;
+      }
+      51%,
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .newyear-panel {
+        padding: 40px 28px 48px;
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="newyear-2026">
   <div class="grain" aria-hidden="true"></div>
   <header class="site-header">
     <div class="site-header__inner">
@@ -20,17 +168,16 @@
     </div>
   </header>
 
-  <main>
-    <section class="panel panel--light">
-      <div class="panel__inner">
-        <div class="newyear-message">
-          <h2 class="newyear-message__title">謹賀新年</h2>
-          <p class="newyear-message__text">
-            あけましておめでとう<br />本年もよろしくお願いお願い申し上げます
-          </p>
-          <button id="runButton" class="newyear-message__button" type="button">馬を走らせる！</button>
-          <div id="stage" aria-hidden="true"></div>
-        </div>
+  <main class="newyear-hero">
+    <section class="newyear-panel">
+      <div class="newyear-message">
+        <p class="newyear-label">2026 New Year</p>
+        <h1 class="newyear-message__title type-line" data-text="謹賀新年">謹賀新年</h1>
+        <p class="type-line" data-text="あけましておめでとう">あけましておめでとう</p>
+        <p class="type-line" data-text="本年もよろしくお願い申し上げます">本年もよろしくお願い申し上げます</p>
+        <button id="runButton" class="newyear-message__button" type="button">馬おみくじ！</button>
+        <p id="omikuji" class="omikuji" aria-live="polite"></p>
+        <div id="stage" aria-hidden="true"></div>
       </div>
     </section>
   </main>
@@ -42,27 +189,118 @@
   <script>
     const runButton = document.getElementById("runButton");
     const stage = document.getElementById("stage");
+    const typeLines = Array.from(document.querySelectorAll(".type-line"));
+    const omikuji = document.getElementById("omikuji");
+    const omikujiResults = ["勝馬", "大吉", "中吉", "小吉", "吉", "末吉", "凶"];
 
     if (runButton && stage) {
       runButton.addEventListener("click", () => {
-        const horse = document.createElement("span");
-        horse.className = "horse";
-        horse.textContent = "🐎";
-        stage.appendChild(horse);
+        const count = Math.floor(Math.random() * 10) + 1;
         const distance = stage.offsetWidth + 120;
 
-        requestAnimationFrame(() => {
-          horse.style.transform = `translateX(-${distance}px)`;
-        });
+        for (let i = 0; i < count; i += 1) {
+          const horse = document.createElement("img");
+          horse.className = "horse";
+          horse.src = "images/馬のフリーアイコン.png";
+          horse.alt = "";
+          horse.setAttribute("aria-hidden", "true");
+          horse.style.top = `${4 + Math.random() * 12}px`;
+          stage.appendChild(horse);
 
-        horse.addEventListener(
-          "transitionend",
-          () => {
-            horse.remove();
-          },
-          { once: true }
-        );
+          setTimeout(() => {
+            horse.style.transform = `translateX(-${distance}px)`;
+          }, i * 120);
+
+          horse.addEventListener(
+            "transitionend",
+            () => {
+              horse.remove();
+            },
+            { once: true }
+          );
+        }
       });
+    }
+
+    if (runButton && omikuji) {
+      runButton.addEventListener("click", () => {
+        const result =
+          omikujiResults[Math.floor(Math.random() * omikujiResults.length)];
+        omikuji.textContent = result;
+        omikuji.classList.remove("is-reveal");
+        requestAnimationFrame(() => {
+          omikuji.classList.add("is-reveal");
+        });
+        if (result === "勝馬") {
+          playFanfare();
+        }
+      });
+    }
+
+    const playFanfare = () => {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const notes = [
+        { freq: 523.25, dur: 0.14 },
+        { freq: 659.25, dur: 0.14 },
+        { freq: 783.99, dur: 0.18 },
+        { freq: 1046.5, dur: 0.3 },
+        { freq: 987.77, dur: 0.14 },
+        { freq: 1046.5, dur: 0.36 },
+      ];
+      let t = ctx.currentTime;
+
+      notes.forEach(({ freq, dur }) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(freq, t);
+        gain.gain.setValueAtTime(0, t);
+        gain.gain.linearRampToValueAtTime(0.6, t + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + dur);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(t);
+        osc.stop(t + dur);
+        t += dur;
+      });
+
+      setTimeout(() => {
+        ctx.close();
+      }, Math.ceil((t - ctx.currentTime) * 1000) + 200);
+    };
+
+
+    const typeLine = (element, delay) =>
+      new Promise((resolve) => {
+        const text = element.dataset.text || element.textContent;
+        element.textContent = "";
+        element.classList.add("is-typing");
+        let index = 0;
+
+        const step = () => {
+          element.textContent = text.slice(0, index + 1);
+          index += 1;
+          if (index < text.length) {
+            setTimeout(step, 70);
+          } else {
+            element.classList.remove("is-typing");
+            resolve();
+          }
+        };
+
+        setTimeout(step, delay);
+      });
+
+    const runTypewriter = async () => {
+      for (let i = 0; i < typeLines.length; i += 1) {
+        await typeLine(typeLines[i], i === 0 ? 400 : 200);
+      }
+    };
+
+    if (typeLines.length) {
+      runTypewriter();
     }
   </script>
 </body>
